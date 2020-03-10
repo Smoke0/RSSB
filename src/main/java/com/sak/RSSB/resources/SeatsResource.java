@@ -6,21 +6,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.sak.RSSB.repositories.UserRepo;
-import com.sak.RSSB.entities.*;
+import com.sak.RSSB.entities.Seats;
+import com.sak.RSSB.repositories.SeatsRepo;
 
 @RestController
-public class UserResource {
+public class SeatsResource {
 	@Autowired
-	UserRepo repo;
+	SeatsRepo repo;
 	
-	@RequestMapping(value="user",method=RequestMethod.GET)
-	public List<User> getUsers(){
-		return (List<User>)repo.findAll();
+	@RequestMapping(value="seat",method=RequestMethod.GET)
+	public List<Seats> getSeats(){
+		return (List<Seats>)repo.findAll();
 	}
 	
-	@RequestMapping(value="user",method=RequestMethod.POST)
-	public User addUser(@RequestBody User u){
-		return repo.save(u);
+	@RequestMapping(value="seat",method=RequestMethod.POST)
+	public Seats addSeat(@RequestBody Seats seat){
+		return repo.save(seat);
 	}
 }
